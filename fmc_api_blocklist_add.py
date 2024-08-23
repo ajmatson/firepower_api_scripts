@@ -23,7 +23,7 @@ from getpass import getpass
 requests.packages.urllib3.disable_warnings()
 
 # Default FMC Configuration
-fmc_ips = ["10.0.80.33", "10.0.80.32"]
+fmc_ips = ["1.1.1.1", "2.2.2.2"]
 group_name = "Blocked_Attackers"
 filename = "hosts.txt"
 
