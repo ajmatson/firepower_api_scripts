@@ -1,5 +1,33 @@
 #!/usr/bin/env python3
 
+# -*- coding: utf-8 -*-
+"""
+Script Name: fmc_api_blocklist_add.py
+Description: A script to assist Cisco FMC admins in adding IP addresses to a network object
+             and associating those objects with a predefined group in FMC.
+
+Usage:
+    python fmc_api_blocklist_add.py
+
+Author: Alan Matson (ajmatson(@)gmail.com)
+Date Created: 09/01/2024
+Last Modified: 10/04/2024
+Version: 1.9c
+
+Requirements:
+    - Python 3.6+
+    - Requests library
+
+Dependencies:
+    - Cisco FMC API Access
+
+License:
+    This script is released under the MIT License.
+
+"""
+
+
+
 import requests
 import json
 from getpass import getpass
@@ -10,7 +38,7 @@ import sys
 requests.packages.urllib3.disable_warnings()
 
 # FMC Configurations
-fmc_ips = ["FMC_IP_URL"]
+fmc_ips = ["uhfmc1.uhcu.net", "uhd1fmc1.uhcu.net"]
 
 # Function to obtain authentication token with retry on failure
 def get_auth_token(fmc_ip, username, password):
@@ -189,7 +217,7 @@ def main():
     print("# group already in the FMC. This reduces time to add objects daily.   #")
     print("#                                                                     #")
     print("# Created by Alan Matson (ajmatson @ gmail)                           #")
-    print("# Date: 10/04/2024     v: 1.9b                                        #")
+    print("# Date: 10/04/2024     v: 1.9a                                        #")
     print("#                                                                     #")
     print("#######################################################################")
     print("                                                                       ")
@@ -237,18 +265,18 @@ def main():
         except Exception as e:
             print(f"Error processing FMC {fmc_ip}: {e}")
 
-    # Prompt for deployment
-    deploy = input("Do you want to deploy the configuration? (Yes/No, default is No): ").lower()
-
-    if deploy in ["yes", "y"]:
-        # Loop over each FMC IP to deploy the configuration
-        for fmc_ip in fmc_ips:
-            try:
-                deploy_configuration(fmc_ip, auth_tokens[fmc_ip])
-            except Exception as e:
-                print(f"Error deploying configuration to FMC {fmc_ip}: {e}")
-    else:
-        print("Configuration changes are not deployed.")
+#    # Prompt for deployment
+#    deploy = input("Do you want to deploy the configuration? (Yes/No, default is No): ").lower()
+#
+#    if deploy in ["yes", "y"]:
+#        # Loop over each FMC IP to deploy the configuration
+#        for fmc_ip in fmc_ips:
+#            try:
+#                deploy_configuration(fmc_ip, auth_tokens[fmc_ip])
+#            except Exception as e:
+#                print(f"Error deploying configuration to FMC {fmc_ip}: {e}")
+#    else:
+#        print("Configuration changes are not deployed.")
 
 if __name__ == "__main__":
     main()
