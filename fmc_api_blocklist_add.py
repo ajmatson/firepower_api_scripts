@@ -217,7 +217,7 @@ def main():
     print("# group already in the FMC. This reduces time to add objects daily.   #")
     print("#                                                                     #")
     print("# Created by Alan Matson (ajmatson @ gmail)                           #")
-    print("# Date: 10/04/2024     v: 1.9a                                        #")
+    print("# Date: 10/04/2024     v: 1.9c                                        #")
     print("#                                                                     #")
     print("#######################################################################")
     print("                                                                       ")
