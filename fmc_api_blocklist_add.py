@@ -38,7 +38,7 @@ import sys
 requests.packages.urllib3.disable_warnings()
 
 # FMC Configurations
-fmc_ips = ["uhfmc1.uhcu.net", "uhd1fmc1.uhcu.net"]
+fmc_ips = ["FMC1.domain.com", "FMC2.domain.com"]
 
 # Function to obtain authentication token with retry on failure
 def get_auth_token(fmc_ip, username, password):
